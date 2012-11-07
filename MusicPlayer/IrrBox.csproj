@@ -104,6 +104,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\appbar.control.eject.png" />
+    <Resource Include="Icons\appbar.control.fastforward.png" />
+    <Resource Include="Icons\appbar.control.pause.png" />
+    <Resource Include="Icons\appbar.control.play.png" />
+    <Resource Include="Icons\appbar.control.rewind.png" />
+    <Resource Include="Icons\appbar.control.stop.png" />
+    <Resource Include="Icons\appbar.settings.png" />
+    <Resource Include="Icons\appbar.sound.0.png" />
+    <Resource Include="Icons\appbar.sound.1.png" />
+    <Resource Include="Icons\appbar.sound.2.png" />
+    <Resource Include="Icons\appbar.sound.3.png" />
+    <Resource Include="Icons\appbar.sound.mute.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

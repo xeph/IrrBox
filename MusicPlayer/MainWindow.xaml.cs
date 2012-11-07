@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace MusicPlayer
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         protected IrrKlang.ISoundEngine irrKlangEngine;
         protected IrrKlang.ISound currentlyPlayingSound;
@@ -66,9 +67,15 @@ namespace MusicPlayer
             if (currentlyPlayingSound != null)
             {
                 if (currentlyPlayingSound.Paused)
-                    PauseButton.Content = "Play";
+                {
+                    //PauseButton.Content = "Play";
+                    //PausePicture.Source = new BitmapImage(new Uri(String.Format(@"./Icons/appbar.control.play.png")));
+                }
                 else
-                    PauseButton.Content = "Pause";
+                {
+                    //PauseButton.Content = "Pause";
+                    //PausePicture.Source = new BitmapImage(new Uri(String.Format(@"./Icons/appbar.control.pause.png")));
+                }
             }
             else
                 PauseButton.Content = "";

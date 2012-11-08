@@ -118,6 +118,9 @@
     <Resource Include="Icons\appbar.sound.3.png" />
     <Resource Include="Icons\appbar.sound.mute.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Tool_-_10,000_Days_cover.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

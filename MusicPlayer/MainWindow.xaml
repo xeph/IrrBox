@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="IrrBox" Height="350" Width="525" ShowTitleBar="true">
+        Title="IrrBox" Height="280" Width="505" ResizeMode="NoResize" ShowTitleBar="true">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -33,33 +33,84 @@
                     <TextBlock Text="settings" />
                 </StackPanel>
             </Button>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20">
+                        <Rectangle.Resources>
+                            <SolidColorBrush x:Key="BlackBrush" Color="White" />
+                        </Rectangle.Resources>
+                        <Rectangle.Fill>
+                            <VisualBrush Stretch="Fill">
+                                <VisualBrush.Visual>
+                                    <Image Source="./Icons/appbar.settings.png" />
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Text="playlist" />
+                </StackPanel>
+            </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.WindowCommands>
     <Grid>
-        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Width="250" Name="AlbumPicture" Source="./Icons/Tool_-_10,000_Days_cover.jpg" />
+        <StackPanel Grid.Column="1">
             <StackPanel>
-                <Button Height="50" Width="50" Name="SelectFileButton" Style="{DynamicResource MetroCircleButtonStyle}">
-                    <Image Height="48" Width="48" Source="./Icons/appbar.control.eject.png" />
-                </Button>
-                <TextBox Name="filenameTextBox"></TextBox>
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Height="48" Width="48" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PreviousButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                <Label FontSize="18" Name="CurrentTime">00:00</Label>
+                <Slider Width="240" Name="TimeSlider"></Slider>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0">Title :</Label>
+                    <Label Grid.Column="1" Grid.Row="0" Name="TitleLabel"></Label>
+                    <Label Grid.Column="0" Grid.Row="1">Artist : </Label>
+                    <Label Grid.Column="1" Grid.Row="1" Name="ArtistLabel"></Label>
+                    <Label Grid.Column="0" Grid.Row="2">Album :</Label>
+                    <Label Grid.Column="1" Grid.Row="2" Name="AlbumLabel"></Label>
+                    <Label Grid.Column="0" Grid.Row="3">Track :</Label>
+                    <Label Grid.Column="1" Grid.Row="3" Name="TrackLabel"></Label>
+                </Grid>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PreviousButton" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.rewind.png" />
                     </Button>
-                    <Button Height="48" Width="48" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PauseButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PauseButton" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Name="PausePicture" Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.pause.png" />
                     </Button>
-                    <Button Height="48" Width="48" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="StopButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="StopButton" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.stop.png" />
                     </Button>
-                    <Button Height="48" Width="48" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="NextButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="NextButton" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.fastforward.png" />
                     </Button>
-                    </StackPanel>
+                    <Button Height="50" Width="50" Name="SelectFileButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                        <Image Height="48" Width="48" Source="./Icons/appbar.control.eject.png" />
+                    </Button>
                 </StackPanel>
-                <Slider Name="volumeTrackBar"></Slider>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="SoundButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                        <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.sound.3.png" />
+                    </Button>
+                    <Slider Name="volumeTrackBar" Width="200"></Slider>
+                </StackPanel>
+                <TextBox Name="filenameTextBox" Visibility="Hidden"></TextBox>
             </StackPanel>
-        </Grid>
+        </StackPanel>
     </Grid>
 </Controls:MetroWindow>

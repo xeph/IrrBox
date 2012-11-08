@@ -35,6 +35,15 @@ namespace MusicPlayer
             PauseButton.Click += new System.Windows.RoutedEventHandler(this.PauseButton_Click);
         }
 
+        private void ButtonClick(object sender, RoutedEventArgs e)
+        {
+            //var x = pivot.Items;
+            //pb.IsIndeterminate = !pb.IsIndeterminate;
+            //Flyouts[0].IsOpen = !Flyouts[0].IsOpen;
+            Flyouts[0].IsOpen = !Flyouts[0].IsOpen;
+        }
+
+
         void playSelectedFile()
         {
             // stop currently playing sound
@@ -98,7 +107,7 @@ namespace MusicPlayer
             System.Windows.Forms.OpenFileDialog dialog = new
                 System.Windows.Forms.OpenFileDialog();
 
-            dialog.Filter = "All playable files (*.mp3;*.ogg;*.wav;*.mod;*.it;*.xm;*.it;*.s3d)|*.mp3;*.ogg;*.wav;*.mod;*.it;*.xm;*.it;*.s3d;*.flac";
+            dialog.Filter = "All playable files (*.mp3;*.ogg;*.wav;*.mod;*.it;*.xm;*.it;*.s3d;*.flac)|*.mp3;*.ogg;*.wav;*.mod;*.it;*.xm;*.it;*.s3d;*.flac";
             dialog.FilterIndex = 0;
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)

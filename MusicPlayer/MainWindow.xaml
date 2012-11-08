@@ -33,7 +33,7 @@
                     <TextBlock Text="settings" />
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Click="ButtonClick">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20">
                         <Rectangle.Resources>
@@ -42,7 +42,7 @@
                         <Rectangle.Fill>
                             <VisualBrush Stretch="Fill">
                                 <VisualBrush.Visual>
-                                    <Image Source="./Icons/appbar.settings.png" />
+                                    <Image Source="./Icons/appbar.align.justify.png" />
                                 </VisualBrush.Visual>
                             </VisualBrush>
                         </Rectangle.Fill>
@@ -52,6 +52,19 @@
             </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.WindowCommands>
+    <Controls:MetroWindow.Flyouts>
+        <!--<Controls:Flyout Header="Playlist" Background="#9f000000">-->
+        <Controls:Flyout Header="Playlist">
+            <ListView Margin="10,10,13,13" Name="ListView1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200">
+                <ListViewItem Content="Coffie"></ListViewItem>
+                <ListViewItem Content="Tea"></ListViewItem>
+                <ListViewItem Content="Orange Juice"></ListViewItem>
+                <ListViewItem Content="Milk"></ListViewItem>
+                <ListViewItem Content="Iced Tea"></ListViewItem>
+                <ListViewItem Content="Mango Shake"></ListViewItem>
+            </ListView>
+        </Controls:Flyout>
+    </Controls:MetroWindow.Flyouts>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250" />

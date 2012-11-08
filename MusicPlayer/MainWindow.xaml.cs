@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using MahApps.Metro;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace MusicPlayer
         public MainWindow()
         {
             InitializeComponent();
-
+            ThemeManager.ChangeTheme(this, ThemeManager.DefaultAccents.First(a => a.Name == "Blue"), Theme.Dark);
             irrKlangEngine = new IrrKlang.ISoundEngine();
 
             SelectFileButton.Click += new System.Windows.RoutedEventHandler(this.SelectFileButton_Click);

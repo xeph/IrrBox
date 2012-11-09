@@ -16,7 +16,7 @@
     </Window.Resources>
     <Controls:MetroWindow.WindowCommands>
         <Controls:WindowCommands>
-            <Button Click="ButtonClick2">
+            <Button Name="SettingsButton" Click="SettingsButtonClick">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20">
                         <Rectangle.Resources>
@@ -33,7 +33,7 @@
                     <TextBlock Text="settings" />
                 </StackPanel>
             </Button>
-            <Button Click="ButtonClick">
+            <Button Name="PlaylistButton" Click="PlaylistButtonClick">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20" Height="20">
                         <Rectangle.Resources>
@@ -128,11 +128,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="SoundButton" Style="{DynamicResource MetroCircleButtonStyle}">
-                        <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.sound.3.png" />
+                        <Image Name="volumePicture" Height="48" Width="48" Stretch="None" Source="./Icons/appbar.sound.3.png" />
                     </Button>
-                    <Slider Name="volumeTrackBar" Width="200"></Slider>
+                    <Slider Name="volumeTrackBar" Width="200" ValueChanged="volumeTrackBar_Scroll"></Slider>
                 </StackPanel>
-                <TextBox Name="filenameTextBox" Visibility="Hidden"></TextBox>
+                <TextBox Name="filenameTextBox" ></TextBox>
             </StackPanel>
         </StackPanel>
     </Grid>

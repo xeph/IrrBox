@@ -83,7 +83,10 @@
         <Image Grid.Column="0" Width="250" Name="AlbumPicture" Source="./Icons/Tool_-_10,000_Days_cover.jpg" />
         <StackPanel Grid.Column="1">
             <StackPanel>
-                <Label FontSize="18" Name="CurrentTime">00:00</Label>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="125" FontSize="18" HorizontalContentAlignment="Left" Name="CurrentTime">00:00</Label>
+                    <Label Width="125" FontSize="18" HorizontalContentAlignment="Right" Content="7:06" Name="TotalTime" />
+                </StackPanel>
                 <Slider Width="240" Name="TimeSlider"></Slider>
             </StackPanel>
             <StackPanel Orientation="Vertical">
@@ -99,13 +102,13 @@
                         <RowDefinition Height="25" />
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0">Title :</Label>
-                    <Label Grid.Column="1" Grid.Row="0" Name="TitleLabel"></Label>
+                    <Label Grid.Column="1" Grid.Row="0" Name="TitleLabel">Vicarious</Label>
                     <Label Grid.Column="0" Grid.Row="1">Artist : </Label>
-                    <Label Grid.Column="1" Grid.Row="1" Name="ArtistLabel"></Label>
+                    <Label Grid.Column="1" Grid.Row="1" Name="ArtistLabel">Tool</Label>
                     <Label Grid.Column="0" Grid.Row="2">Album :</Label>
-                    <Label Grid.Column="1" Grid.Row="2" Name="AlbumLabel"></Label>
+                    <Label Grid.Column="1" Grid.Row="2" Name="AlbumLabel">10,000 Days</Label>
                     <Label Grid.Column="0" Grid.Row="3">Track :</Label>
-                    <Label Grid.Column="1" Grid.Row="3" Name="TrackLabel"></Label>
+                    <Label Grid.Column="1" Grid.Row="3" Name="TrackLabel">1</Label>
                 </Grid>
             </StackPanel>
             <StackPanel>

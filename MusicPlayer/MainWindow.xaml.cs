@@ -44,6 +44,11 @@ namespace MusicPlayer
             Flyouts[0].IsOpen = !Flyouts[0].IsOpen;
         }
 
+        private void ButtonClick2(object sender, RoutedEventArgs e)
+        {
+            Flyouts[1].IsOpen = !Flyouts[1].IsOpen;
+        }
+
 
         void playSelectedFile()
         {

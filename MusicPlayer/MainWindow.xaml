@@ -119,7 +119,7 @@
                     <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PauseButton" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Name="PausePicture" Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.pause.png" />
                     </Button>
-                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="StopButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="StopButton" Click="StopButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.stop.png" />
                     </Button>
                     <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="NextButton" Style="{DynamicResource MetroCircleButtonStyle}">
@@ -135,7 +135,6 @@
                     </Button>
                     <Slider Name="volumeTrackBar" Width="200" ValueChanged="volumeTrackBar_Scroll"></Slider>
                 </StackPanel>
-                <TextBox Name="filenameTextBox" ></TextBox>
             </StackPanel>
         </StackPanel>
     </Grid>

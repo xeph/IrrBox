@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="IrrBox" Height="280" Width="505" ResizeMode="CanMinimize" ShowIconOnTitleBar="true" Icon="./Icons/headphones.png" ShowTitleBar="true">
+        Title="IrrBox" Height="280" Width="505" ResizeMode="CanMinimize" 
+                      ShowIconOnTitleBar="true" Icon="./Icons/headphones.png" ShowTitleBar="true">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -53,19 +54,12 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.WindowCommands>
     <Controls:MetroWindow.Flyouts>
-        <!--<Controls:Flyout Header="Playlist" Background="#9f000000">-->
+        <!--Transparent background : Background="#9f000000"-->
         <Controls:Flyout Header="Playlist" Position="Left">
             <ListView Margin="10,10,13,13" Name="ListViewPlaylist" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200" />
         </Controls:Flyout>
-        <Controls:Flyout Header="Settings" Position="Right">
-            <ListView Margin="10,10,13,13" Name="ListViewSettings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200">
-                <ListViewItem Content="Coffie"></ListViewItem>
-                <ListViewItem Content="Tea"></ListViewItem>
-                <ListViewItem Content="Orange Juice"></ListViewItem>
-                <ListViewItem Content="Milk"></ListViewItem>
-                <ListViewItem Content="Iced Tea"></ListViewItem>
-                <ListViewItem Content="Mango Shake"></ListViewItem>
-            </ListView>
+        <Controls:Flyout Header="Settings" Position="Left">
+            <ListView Margin="10,10,13,13" Name="ListViewSettings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200" />
         </Controls:Flyout>
     </Controls:MetroWindow.Flyouts>
     <Grid>
@@ -77,10 +71,10 @@
         <StackPanel Grid.Column="1">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label Width="125" FontSize="18" HorizontalContentAlignment="Left" Name="CurrentTime">00:00</Label>
+                    <Label Width="125" FontSize="18" HorizontalContentAlignment="Left" Content="00:00" Name="CurrentTime" />
                     <Label Width="125" FontSize="18" HorizontalContentAlignment="Right" Content="7:06" Name="TotalTime" />
                 </StackPanel>
-                <Slider Width="240" Name="TimeSlider"></Slider>
+                <Slider Width="240" Name="TimeSlider" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <Grid>
@@ -94,14 +88,14 @@
                         <RowDefinition Height="25" />
                         <RowDefinition Height="25" />
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0">Title :</Label>
-                    <Label Grid.Column="1" Grid.Row="0" Name="TitleLabel">Vicarious</Label>
-                    <Label Grid.Column="0" Grid.Row="1">Artist : </Label>
-                    <Label Grid.Column="1" Grid.Row="1" Name="ArtistLabel">Tool</Label>
-                    <Label Grid.Column="0" Grid.Row="2">Album :</Label>
-                    <Label Grid.Column="1" Grid.Row="2" Name="AlbumLabel">10,000 Days</Label>
-                    <Label Grid.Column="0" Grid.Row="3">Track :</Label>
-                    <Label Grid.Column="1" Grid.Row="3" Name="TrackLabel">1</Label>
+                    <Label Grid.Column="0" Grid.Row="0" Content="Title :" />
+                    <Label Grid.Column="1" Grid.Row="0" Content="Vicarious" Name="TitleLabel" />
+                    <Label Grid.Column="0" Grid.Row="1" Content="Artist :" />
+                    <Label Grid.Column="1" Grid.Row="1" Content="Tool" Name="ArtistLabel" />
+                    <Label Grid.Column="0" Grid.Row="2" Content="Album :" />
+                    <Label Grid.Column="1" Grid.Row="2" Content="10,000 Days" Name="AlbumLabel" />
+                    <Label Grid.Column="0" Grid.Row="3" Content="Track :" />
+                    <Label Grid.Column="1" Grid.Row="3" Content="1" Name="TrackLabel" />
                 </Grid>
             </StackPanel>
             <StackPanel>
@@ -126,7 +120,7 @@
                     <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="SoundButton" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Name="volumePicture" Height="48" Width="48" Stretch="None" Source="./Icons/appbar.sound.3.png" />
                     </Button>
-                    <Slider Name="volumeTrackBar" Width="200" ValueChanged="volumeTrackBar_Scroll"></Slider>
+                    <Slider Name="volumeTrackBar" Width="200" ValueChanged="volumeTrackBar_Scroll" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>

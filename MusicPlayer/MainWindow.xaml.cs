@@ -40,6 +40,7 @@ namespace MusicPlayer
             
             irrKlangEngine = new IrrKlang.ISoundEngine();
             ThemeManager.ChangeTheme(this, ThemeManager.DefaultAccents.First(a => a.Name == "Blue"), Theme.Dark);
+            volumeTrackBar.Value = 100;
 
             SelectFileButton.Click += new System.Windows.RoutedEventHandler(this.SelectFileButton_Click);
             PauseButton.Click += new System.Windows.RoutedEventHandler(this.PauseButton_Click);
@@ -131,7 +132,7 @@ namespace MusicPlayer
             System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog();
 
             dialog.Multiselect = true;
-            dialog.Filter = "All playable files (*.mp3;*.ogg;*.wav;*.mod;*.xm;*.it;*.s3d;*.flac)|*.mp3;*.ogg;*.wav;*.mod;*.xm;*.it;*.s3d;*.flac|MP3 files (*.mp3)|*.mp3|OGG files (*.ogg)|*.ogg|FLAC files (*.flac)|*.flac|Wave files (*.wav)|*.wav";
+            dialog.Filter = "All playable files (*.mp3;*.ogg;*.wav;*.mod;*.xm;*.it;*.s3d;*.flac)|*.mp3;*.ogg;*.wav;*.mod;*.xm;*.it;*.s3d;*.flac|MP3 files (*.mp3)|*.mp3|OGG files (*.ogg)|*.ogg|FLAC files (*.flac)|*.flac|Wave files (*.wav)|*.wav|MOD files (*.mod)|*.mod|XM files (*.xm)|*.xm|IT files (*.it)|*.it|S3D files (*.s3d)|*.s3d";
             dialog.FilterIndex = 0;
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -160,8 +161,6 @@ namespace MusicPlayer
             currentlyPlayingSound = irrKlangEngine.Play2D(filename, true);
 
             UpdatePauseButtonText();
-
-            volumeTrackBar.Value = 100;
         }
 
         private void UpdatePauseButtonText()

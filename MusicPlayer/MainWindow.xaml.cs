@@ -1,30 +1,9 @@
 ﻿using MahApps.Metro;
 using MahApps.Metro.Controls;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media.Imaging;
-
-/*
-using MahApps.Metro;
-using MahApps.Metro.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-*/
 
 namespace MusicPlayer
 {
@@ -34,6 +13,10 @@ namespace MusicPlayer
         protected IrrKlang.ISound currentlyPlayingSound;
         private IrrBox.SongList songList = new IrrBox.SongList();
 
+        #region Constructor/Destructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -43,17 +26,43 @@ namespace MusicPlayer
             volumeTrackBar.Value = 100;
         }
 
+        /// <summary>
+        /// Destructor
+        /// </summary>
+        ~MainWindow()
+        {
+            if (currentlyPlayingSound != null)
+                currentlyPlayingSound.Dispose();
+            irrKlangEngine.Dispose();
+            songList = null;
+        }
+        #endregion
         #region UI Interaction
+        /// <summary>
+        /// Playlist button click action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PlaylistButtonClick(object sender, RoutedEventArgs e)
         {
             Flyouts[0].IsOpen = !Flyouts[0].IsOpen;
         }
 
+        /// <summary>
+        /// Settings button click action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SettingsButtonClick(object sender, RoutedEventArgs e)
         {
             Flyouts[1].IsOpen = !Flyouts[1].IsOpen;
         }
 
+        /// <summary>
+        /// Stop button click action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StopButton_Click(object sender, System.EventArgs e)
         {
             if (currentlyPlayingSound != null)
@@ -63,6 +72,11 @@ namespace MusicPlayer
             }
         }
 
+        /// <summary>
+        /// Pause button click action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PauseButton_Click(object sender, System.EventArgs e)
         {
             if (currentlyPlayingSound != null)
@@ -72,6 +86,11 @@ namespace MusicPlayer
             }
         }
 
+        /// <summary>
+        /// Volume slider value changed action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void volumeTrackBar_Scroll(object sender, System.EventArgs e)
         {
             if (currentlyPlayingSound != null)
@@ -106,6 +125,11 @@ namespace MusicPlayer
             }
         }
 
+        /// <summary>
+        /// Previous button click action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PreviousButton_Click(object sender, System.EventArgs e)
         {
             if (songList.Count() > 0 && songList.currentSong >= 1)
@@ -116,6 +140,11 @@ namespace MusicPlayer
             }
         }
 
+        /// <summary>
+        /// Next button click action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NextButton_Click(object sender, System.EventArgs e)
         {
             if (songList.Count() > 0 && songList.currentSong < songList.Count() - 1)
@@ -126,6 +155,11 @@ namespace MusicPlayer
             }
         }
 
+        /// <summary>
+        /// Select file dialog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SelectFileButton_Click(object sender, System.EventArgs e)
         {
             System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog();
@@ -150,7 +184,11 @@ namespace MusicPlayer
             }
         }
         #endregion
-
+        #region Misc functions
+        /// <summary>
+        /// Play the selected file using the path
+        /// </summary>
+        /// <param name="filename"></param>
         void playSelectedFile(string filename)
         {
             if (currentlyPlayingSound != null)
@@ -163,6 +201,9 @@ namespace MusicPlayer
             UpdatePauseButtonText();
         }
 
+        /// <summary>
+        /// Update the pause button icon
+        /// </summary>
         private void UpdatePauseButtonText()
         {
             if (currentlyPlayingSound != null)
@@ -178,9 +219,14 @@ namespace MusicPlayer
             }
         }
 
+        /// <summary>
+        /// Get the current volume
+        /// </summary>
+        /// <returns></returns>
         private float getCurrentVolume()
         {
             return (float)volumeTrackBar.Value / 100.0f;
         }
+        #endregion
     }
 }

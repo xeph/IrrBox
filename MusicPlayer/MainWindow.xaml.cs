@@ -41,9 +41,6 @@ namespace MusicPlayer
             irrKlangEngine = new IrrKlang.ISoundEngine();
             ThemeManager.ChangeTheme(this, ThemeManager.DefaultAccents.First(a => a.Name == "Blue"), Theme.Dark);
             volumeTrackBar.Value = 100;
-
-            SelectFileButton.Click += new System.Windows.RoutedEventHandler(this.SelectFileButton_Click);
-            PauseButton.Click += new System.Windows.RoutedEventHandler(this.PauseButton_Click);
         }
 
         #region UI Interaction
@@ -79,7 +76,7 @@ namespace MusicPlayer
         {
             if (currentlyPlayingSound != null)
             {
-                float volume = (float)volumeTrackBar.Value / 100.0f;
+                float volume = getCurrentVolume();
                 currentlyPlayingSound.Volume = volume;
 
                 if (volume == 0)
@@ -114,6 +111,7 @@ namespace MusicPlayer
             if (songList.Count() > 0 && songList.currentSong >= 1)
             {
                 playSelectedFile(songList.getSong(songList.currentSong - 1).path);
+                currentlyPlayingSound.Volume = getCurrentVolume();
                 songList.currentSong -= 1;
             }
         }
@@ -123,6 +121,7 @@ namespace MusicPlayer
             if (songList.Count() > 0 && songList.currentSong < songList.Count() - 1)
             {
                 playSelectedFile(songList.getSong(songList.currentSong + 1).path);
+                currentlyPlayingSound.Volume = getCurrentVolume();
                 songList.currentSong += 1;
             }
         }
@@ -147,6 +146,7 @@ namespace MusicPlayer
                     ListViewPlaylist.Items.Add(song.path);
                 }
                 playSelectedFile(songList.getSong(0).path);
+                currentlyPlayingSound.Volume = getCurrentVolume();
             }
         }
         #endregion
@@ -176,6 +176,11 @@ namespace MusicPlayer
                     PausePicture.Source = new BitmapImage(new Uri(String.Format(@"./Icons/appbar.control.pause.png"), UriKind.Relative));
                 }
             }
+        }
+
+        private float getCurrentVolume()
+        {
+            return (float)volumeTrackBar.Value / 100.0f;
         }
     }
 }

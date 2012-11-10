@@ -103,7 +103,7 @@
                     <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PreviousButton" Click="PreviousButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.rewind.png" />
                     </Button>
-                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PauseButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PauseButton" Click="PauseButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Name="PausePicture" Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.pause.png" />
                     </Button>
                     <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="StopButton" Click="StopButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
@@ -112,7 +112,7 @@
                     <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="NextButton" Click="NextButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.fastforward.png" />
                     </Button>
-                    <Button Height="50" Width="50" Name="SelectFileButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Button Height="50" Width="50" Name="SelectFileButton" Click="SelectFileButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Source="./Icons/appbar.control.eject.png" />
                     </Button>
                 </StackPanel>

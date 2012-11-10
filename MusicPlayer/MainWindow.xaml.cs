@@ -24,6 +24,8 @@ namespace MusicPlayer
             irrKlangEngine = new IrrKlang.ISoundEngine();
             ThemeManager.ChangeTheme(this, ThemeManager.DefaultAccents.First(a => a.Name == "Blue"), Theme.Dark);
             volumeTrackBar.Value = 100;
+
+            ListViewPlaylist.AddHandler(MetroContentControl.MouseDoubleClickEvent, new RoutedEventHandler(Playlist_DoubleClick));
         }
 
         /// <summary>
@@ -84,6 +86,18 @@ namespace MusicPlayer
                 currentlyPlayingSound.Paused = !currentlyPlayingSound.Paused;
                 UpdatePauseButtonText();
             }
+        }
+
+        /// <summary>
+        /// Playlist double click on selection action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Playlist_DoubleClick(object sender, RoutedEventArgs e)
+        {
+            playSelectedFile(songList.getSong(ListViewPlaylist.SelectedIndex).path);
+            currentlyPlayingSound.Volume = getCurrentVolume();
+            songList.currentSong = ListViewPlaylist.SelectedIndex;
         }
 
         /// <summary>
@@ -172,12 +186,14 @@ namespace MusicPlayer
             {
                 songList = new IrrBox.SongList();
                 ListViewPlaylist.Items.Clear();
+                int i = 1;
                 foreach (string filename in dialog.FileNames)
                 {
                     IrrBox.Song song = new IrrBox.Song();
                     song.path = filename;
                     songList.addSong(song);
-                    ListViewPlaylist.Items.Add(song.path);
+                    ListViewPlaylist.Items.Add(i + " - " + song.path);
+                    i += 1;
                 }
                 playSelectedFile(songList.getSong(0).path);
                 currentlyPlayingSound.Volume = getCurrentVolume();

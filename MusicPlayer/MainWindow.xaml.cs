@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro;
 using MahApps.Metro.Controls;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -31,6 +32,7 @@ namespace MusicPlayer
     {
         protected IrrKlang.ISoundEngine irrKlangEngine;
         protected IrrKlang.ISound currentlyPlayingSound;
+        private IrrBox.SongList songList = new IrrBox.SongList();
 
         public MainWindow()
         {
@@ -106,6 +108,24 @@ namespace MusicPlayer
             }
         }
 
+        private void PreviousButton_Click(object sender, System.EventArgs e)
+        {
+            if (songList.Count() > 0 && songList.currentSong >= 1)
+            {
+                playSelectedFile(songList.getSong(songList.currentSong - 1).path);
+                songList.currentSong -= 1;
+            }
+        }
+
+        private void NextButton_Click(object sender, System.EventArgs e)
+        {
+            if (songList.Count() > 0 && songList.currentSong < songList.Count() - 1)
+            {
+                playSelectedFile(songList.getSong(songList.currentSong + 1).path);
+                songList.currentSong += 1;
+            }
+        }
+
         private void SelectFileButton_Click(object sender, System.EventArgs e)
         {
             System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog();
@@ -116,11 +136,16 @@ namespace MusicPlayer
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                songList = new IrrBox.SongList();
+                ListViewPlaylist.Items.Clear();
                 foreach (string filename in dialog.FileNames)
                 {
-                    // songlist here
-                    playSelectedFile(filename);
+                    IrrBox.Song song = new IrrBox.Song();
+                    song.path = filename;
+                    songList.addSong(song);
+                    ListViewPlaylist.Items.Add(song.path);
                 }
+                playSelectedFile(songList.getSong(0).path);
             }
         }
         #endregion

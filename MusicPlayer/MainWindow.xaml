@@ -55,17 +55,10 @@
     <Controls:MetroWindow.Flyouts>
         <!--<Controls:Flyout Header="Playlist" Background="#9f000000">-->
         <Controls:Flyout Header="Playlist" Position="Left">
-            <ListView Margin="10,10,13,13" Name="ListView1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200">
-                <ListViewItem Content="Coffie"></ListViewItem>
-                <ListViewItem Content="Tea"></ListViewItem>
-                <ListViewItem Content="Orange Juice"></ListViewItem>
-                <ListViewItem Content="Milk"></ListViewItem>
-                <ListViewItem Content="Iced Tea"></ListViewItem>
-                <ListViewItem Content="Mango Shake"></ListViewItem>
-            </ListView>
+            <ListView Margin="10,10,13,13" Name="ListViewPlaylist" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200" />
         </Controls:Flyout>
         <Controls:Flyout Header="Settings" Position="Right">
-            <ListView Margin="10,10,13,13" Name="ListView2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200">
+            <ListView Margin="10,10,13,13" Name="ListViewSettings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200">
                 <ListViewItem Content="Coffie"></ListViewItem>
                 <ListViewItem Content="Tea"></ListViewItem>
                 <ListViewItem Content="Orange Juice"></ListViewItem>
@@ -113,7 +106,7 @@
             </StackPanel>
             <StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PreviousButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PreviousButton" Click="PreviousButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.rewind.png" />
                     </Button>
                     <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="PauseButton" Style="{DynamicResource MetroCircleButtonStyle}">
@@ -122,7 +115,7 @@
                     <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="StopButton" Click="StopButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.stop.png" />
                     </Button>
-                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="NextButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="NextButton" Click="NextButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Height="48" Width="48" Stretch="None" Source="./Icons/appbar.control.fastforward.png" />
                     </Button>
                     <Button Height="50" Width="50" Name="SelectFileButton" Style="{DynamicResource MetroCircleButtonStyle}">

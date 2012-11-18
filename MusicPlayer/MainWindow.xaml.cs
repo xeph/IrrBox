@@ -139,6 +139,22 @@ namespace MusicPlayer
             }
         }
 
+        private void VolumeButton_Click(object sender, System.EventArgs e)
+        {
+            if (getCurrentVolume() <= 0)
+            {
+                currentlyPlayingSound.Volume = 100;
+                volumeTrackBar.Value = volumeTrackBar.Maximum;
+                volumePicture.Source = new BitmapImage(new Uri(String.Format(@"./Icons/appbar.sound.3.png"), UriKind.Relative));
+            }
+            else
+            {
+                currentlyPlayingSound.Volume = 0;
+                volumeTrackBar.Value = volumeTrackBar.Minimum;
+                volumePicture.Source = new BitmapImage(new Uri(String.Format(@"./Icons/appbar.sound.mute.png"), UriKind.Relative));
+            }
+        }
+
         /// <summary>
         /// Previous button click action
         /// </summary>

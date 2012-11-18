@@ -117,7 +117,7 @@
                     </Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="SoundButton" Style="{DynamicResource MetroCircleButtonStyle}">
+                    <Button Height="50" Width="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Name="SoundButton" Click="VolumeButton_Click" Style="{DynamicResource MetroCircleButtonStyle}">
                         <Image Name="volumePicture" Height="48" Width="48" Stretch="None" Source="./Icons/appbar.sound.3.png" />
                     </Button>
                     <Slider Name="volumeTrackBar" Width="200" ValueChanged="volumeTrackBar_Scroll" />

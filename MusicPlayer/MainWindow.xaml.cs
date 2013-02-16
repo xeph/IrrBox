@@ -205,7 +205,7 @@ namespace MusicPlayer
                 int i = 1;
                 foreach (string filename in dialog.FileNames)
                 {
-                    IrrBox.Song song = new IrrBox.Song();
+                    IrrBox.Song song = new IrrBox.Song(filename);
                     song.path = filename;
                     songList.addSong(song);
                     ListViewPlaylist.Items.Add(i + " - " + song.path);
